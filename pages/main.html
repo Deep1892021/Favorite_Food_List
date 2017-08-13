@@ -1,0 +1,108 @@
+<div class="main  " ng-controller="mainController" >
+    <nav class="navbar navbar-default navbar-fixed">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="font-family: aharoni;"><span class="glyphicon glyphicon-apple ha" area-hidden="true"></span>&nbsp&nbspFOODIE-APP<small  style="font-size: 15px; font-family: chiller;"> by Kuldeep Singh</small></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+          <li><a href="#!/home">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Order Online</a></li>
+          <li><a href="#!/">Logout</a></li>
+      </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="ui container">
+        <div class="hero wq">
+            <p ng-click="change()" class="hb">FIND THE BEST RESTAURANTS IN TOWN</p>
+        </div>
+
+        <div class="search-bar">
+                      <form>
+                      <div class="input-wrapper">
+                        <input type="text" class="form-control" placeholder="Search..." ng-model="query" >
+                      </div>
+                      <button type="submit" class="btn btn-default">Search</button>
+                    </form>
+                  </div>
+
+        <div ng-repeat="restaurant in restaurants | filter:query" class="restaurant">
+              <div class="rest-wrapper">
+                  <div class="image we">
+                      <img ng-src="{{restaurant.image}}" height="100" width="100">
+                  </div>
+                  <div class="rest-info">
+                      <div class="rest-category">
+                         <small>{{restaurant.category}} </small>
+                      </div>
+                      <div class="rest-name">
+                       <a ng-href="#!/restaurant/{{restaurant.id}}"><strong>{{restaurant.name}}</strong></a>
+                      </div>
+                      <div>
+                         <strong> {{restaurant.location}}</strong>
+                      </div>
+                      <div class="rest-address">
+                          {{restaurant.address}}
+                      </div>
+                  </div>
+              </div>
+              <div class="rest-extra">
+                  <div class="type">
+                      <div><small>Cuisines:</small></div>
+                      <div><small>Cost for Two: </small></div>
+                      <div><small>Hours:</small></div>
+                  </div>
+                  <div class="value">
+                      <div>{{restaurant.cuisines}}</div>
+                      <div>{{restaurant.cost| currency:"&#8377;":0 }}</div>
+                      <div>{{restaurant.hours}}</div>
+                  </div>
+
+
+
+ <div  style="margin-left: 120px;">
+           <!--  <div><small class="type">&nbsp&nbsp&nbspGet Directions From Here</small></div> -->
+            <div><small class="type">&nbsp&nbsp&nbspGet Directions</small><a href="https://www.google.co.in/maps/place/Ambala,+Haryana/@30.3721234,76.7424072,13z/data=!3m1!4b1!4m5!3m4!1s0x390fb62a421e6f11:0xebd28a29f7258d14!8m2!3d30.3781697!4d76.7767096"><img class="wr" src="http://www.herl.pitt.edu/sites/default/files/images/map-close.jpg" style="width: 200px;height: 80px;"></a></div>
+        </div>
+    </div>
+
+
+ <div class="panel panel-default wr">
+           <div class="panel-heading">
+               <h3 class="panel-title">
+    <a href="#!/home">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-earphone" aria-hidden="true" style="color: #4b4f56!important; font-size: 15px;"><span style="font-family: aharoni;">&nbspCall&nbsp</a></span></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="#!home"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" style="color: #4b4f56!important; font-size: 15px;"><span style="font-family: aharoni;">&nbspView Menu</a></span></span>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="#!/home"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: #43B301  !important; font-size: 15px;"><spanstyle="font-family: aharoni;">&nbspOrder Now</a></span></span>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="#!/home"><span class="glyphicon glyphicon-bookmark" aria-hidden="true" style="color: #4b4f56!important; font-size: 15px;"><span style="font-family: aharoni;">&nbspBook A Table</span></span>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <a href="#!/home"><span class="glyphicon glyphicon-search" aria-hidden="true" style="color: #4b4f56!important; font-size: 15px;"><span style="font-family: aharoni;">&nbspShow More Info</span></span>
+    </h3>
+
+
+           </div>
+       </div>
+
+
+              <div class="rating wr">
+                  <strong>{{restaurant.vote}}</strong>
+              </div>
+          </div>
+    </div>
+</div>

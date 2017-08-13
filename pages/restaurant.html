@@ -1,0 +1,82 @@
+<div class="restaurant" ng-if="restaurant.name">
+    <div class="rest-wrapper">
+        <div class="image we">
+            <img ng-src="{{restaurant.image}}" height="100" width="100">
+        </div>
+        <div class="rest-info">
+            <div class="rest-category">
+               <small>{{restaurant.category}} </small>
+            </div>
+            <div class="rest-name">
+            <strong>{{restaurant.name}}</strong>
+            </div>
+            <div>
+               <strong> {{restaurant.location}}</strong>
+            </div>
+            <div class="rest-address">
+                {{restaurant.address}}
+            </div>
+        </div>
+    </div>
+    <div class="rest-extra" >
+        <div class="type">
+            <div><small>Cuisines:</small></div>
+            <div><small>Cost for Two: </small></div>
+            <div><small>Hours:</small></div>
+             <div ng-if="restaurant.bestDish"><small>Recommended: </small></div>
+        </div>
+        <div class="value">
+            <div>{{restaurant.cuisines}}</div>
+            <div>₹{{restaurant.cost | number}}</div>
+            <div>{{restaurant.hours}}</div>
+            <div class="bestDish" ng-if="restaurant.bestDish">
+         <span>{{restaurant.bestDish.name}} </span>
+         <div  ng-click="getIngredients(restaurant.bestDish.image);toggle();" class="button">Get Ingredients</div>
+         <div  class="button" ng-init= "getIngredients(restaurant.bestDish.image)"><a href="#!/todolist " ng-click="">List</a></div>
+        </div>
+
+
+    </div>
+
+&nbsp&nbsp&nbsp&nbsp
+ <div class="panel panel-default wr">
+           <div class="panel-body">
+               <h3 class="panel-title">
+    <a href="#!/home">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-earphone" aria-hidden="true" style="color: #4b4f56!important; font-size: 25px;"><span style="font-family: aharoni;">&nbspCall&nbsp</a></span></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="#!home"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true" style="color: #4b4f56!important; font-size: 25px;"><span style="font-family: aharoni;">&nbspView Menu</a></span></span>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <a href="#!/home"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="color: #43B301  !important; font-size: 25px;"><spanstyle="font-family: aharoni;">&nbspOrder Now</a></span></span>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    </h3>
+
+
+           </div>
+       </div>
+
+
+
+    <div ng-if="ingredients && x==1">
+      <ol>
+  <li ng-repeat="ingredient in ingredients">
+    <input type="checkbox" value={{ingredient.name}} name="user" ng-model="ingredient.selected">
+  {{ingredient.name}}
+
+
+
+  </li>
+    <button type='button' ng-click="save()">Save</button><br>
+    Saved results:<br>
+    {{useringredient}}
+
+  </ol>
+  <div class="not-found" >
+    {{message}}
+  </div>
+
+    <div class="rating wr" ng-class="nonVegFood?'red-background':''" >
+        <strong>{{restaurant.vote}}</strong>
+    </div>
+
+</div>
